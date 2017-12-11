@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="fr"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>Client.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">FactureMavenEnonce</a> &gt; <a href="index.source.html" class="el_package">facture</a> &gt; <span class="el_source">Client.java</span></div><h1>Client.java</h1><pre class="source lang-java linenums">package facture;
+
+public class Client {
+ 
+    private String address;
+
+<span class="fc" id="L7">    public Client(String name, String address) {</span>
+<span class="fc" id="L8">        this.address = address;</span>
+<span class="fc" id="L9">        this.name = name;</span>
+<span class="fc" id="L10">    }</span>
+
+    /**
+     * Get the value of address
+     *
+     * @return the value of address
+     */
+    public String getAddress() {
+<span class="nc" id="L18">        return address;</span>
+    }
+
+    /**
+     * Set the value of address
+     *
+     * @param address new value of address
+     */
+    public void setAddress(String address) {
+<span class="nc" id="L27">        this.address = address;</span>
+<span class="nc" id="L28">    }</span>
+   
+    private String name;
+
+    /**
+     * Get the value of name
+     *
+     * @return the value of name
+     */
+    public String getName() {
+<span class="nc" id="L38">        return name;</span>
+    }
+
+    /**
+     * Set the value of name
+     *
+     * @param name new value of name
+     */
+    public void setName(String name) {
+<span class="nc" id="L47">        this.name = name;</span>
+<span class="nc" id="L48">    }</span>
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.7.7.201606060606</span></div></body></html>

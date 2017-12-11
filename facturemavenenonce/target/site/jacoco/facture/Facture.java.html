@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="fr"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>Facture.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">FactureMavenEnonce</a> &gt; <a href="index.source.html" class="el_package">facture</a> &gt; <span class="el_source">Facture.java</span></div><h1>Facture.java</h1><pre class="source lang-java linenums">package facture;
+
+import java.io.PrintStream;
+import java.util.Date;
+import java.util.LinkedList;
+
+public class Facture {
+
+    private Client destinataire;
+    private Date emission;
+    private int numero;
+    private LinkedList&lt;LigneFacture&gt; lignesfacture;
+    
+<span class="fc" id="L14">    public Facture(Client destinataire, Date emission, int numero) {</span>
+<span class="fc" id="L15">        this.destinataire = destinataire;</span>
+<span class="fc" id="L16">        this.emission = emission;</span>
+<span class="fc" id="L17">        this.numero = numero;</span>
+<span class="fc" id="L18">        this.lignesfacture = new LinkedList&lt;&gt;();</span>
+<span class="fc" id="L19">    }</span>
+
+    /**
+     * Get the value of numero
+     *
+     * @return the value of numero
+     */
+    public int getNumero() {
+<span class="nc" id="L27">        return this.numero;</span>
+    }
+
+    /**
+     * Get the value of emission
+     *
+     * @return the value of emission
+     */
+    public Date getEmission() {
+<span class="nc" id="L36">        return this.emission;</span>
+    }
+
+    /**
+     * Get the value of destinataire
+     *
+     * @return the value of destinataire
+     */
+    public Client getDestinataire() {
+<span class="nc" id="L45">        return this.destinataire;</span>
+    }
+
+
+    
+    public void ajouteLigne(Article a, int nombre, float remise) {
+<span class="fc" id="L51">        LigneFacture ligne = new LigneFacture(nombre,this,a,remise);</span>
+<span class="fc" id="L52">        lignesfacture.add(ligne);</span>
+<span class="fc" id="L53">   }</span>
+    
+   public float montantTTC(float tauxTVA) {
+<span class="fc" id="L56">        float montant = 0;</span>
+<span class="fc bfc" id="L57" title="All 2 branches covered.">        for (LigneFacture l : lignesfacture){</span>
+<span class="fc" id="L58">            montant+=l.montantLigne()*(1+tauxTVA);</span>
+<span class="fc" id="L59">        }</span>
+<span class="fc" id="L60">        return montant;</span>
+   }
+   
+   public void print(PrintStream out, float tva) {
+<span class="nc" id="L64">        out.println(&quot;Destinataire :&quot; + this.destinataire + &quot;\n Date d'emission&quot; + emission+ &quot;\n Numero de facture :&quot; + numero+ &quot;\n Tva :&quot; + tva + &quot;\n Details de la facture :&quot; +lignesfacture );</span>
+<span class="nc" id="L65">   }</span>
+   
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.7.7.201606060606</span></div></body></html>
